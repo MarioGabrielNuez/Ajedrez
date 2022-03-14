@@ -14,6 +14,7 @@ public class Pieces{
 		reina, 
 		rey;
 	}
+	
 	private String path;
 	private String color;
 	
