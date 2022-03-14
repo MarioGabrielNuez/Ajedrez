@@ -4,7 +4,7 @@ import java.awt.GridLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import controller.Casillas;
+import controller.Maping;
 import java.awt.Color;
 import java.awt.Image;
 import java.io.File;
@@ -14,7 +14,7 @@ import javax.imageio.ImageIO;
 /**
  * @author Mario Gabriel Núñez Alcázar de Velasco
  */
-public class Tablero extends Window implements Casillas {	
+public class Tablero extends Window implements Maping {	
 	protected JPanel[][] celdas = null;
 	
 	/**
@@ -124,11 +124,11 @@ public class Tablero extends Window implements Casillas {
 						Pieces pieza = NewPiece("negro", Pieces.Types.torre);
 						
 						if (x == 0) {
-							Casilla._1A.setCasilla(celdas[i][x]);
-							Casilla._1A.setPieza(pieza);
+							Casillas._1A.setCasilla(celdas[i][x]);
+							Casillas._1A.setPieza(pieza);
 						} else if (x == 7) {
-							Casilla._1H.setCasilla(celdas[i][x]);
-							Casilla._1H.setPieza(pieza);
+							Casillas._1H.setCasilla(celdas[i][x]);
+							Casillas._1H.setPieza(pieza);
 						}
 
 						PlacePieces(i, x, pieza);
@@ -138,11 +138,11 @@ public class Tablero extends Window implements Casillas {
 						Pieces pieza = NewPiece("negro", Pieces.Types.caballo);
 						
 						if (x == 1) {
-							Casilla._1B.setCasilla(celdas[i][x]);
-							Casilla._1B.setPieza(pieza);
+							Casillas._1B.setCasilla(celdas[i][x]);
+							Casillas._1B.setPieza(pieza);
 						} else if (x == 6) {
-							Casilla._1G.setCasilla(celdas[i][x]);
-							Casilla._1G.setPieza(pieza);
+							Casillas._1G.setCasilla(celdas[i][x]);
+							Casillas._1G.setPieza(pieza);
 						}
 
 						PlacePieces(i, x, pieza);
@@ -152,11 +152,11 @@ public class Tablero extends Window implements Casillas {
 						Pieces pieza = NewPiece("negro", Pieces.Types.alfil);
 						
 						if (x == 2) {
-							Casilla._1C.setCasilla(celdas[i][x]);
-							Casilla._1C.setPieza(pieza);
+							Casillas._1C.setCasilla(celdas[i][x]);
+							Casillas._1C.setPieza(pieza);
 						} else if (x == 5) {
-							Casilla._1F.setCasilla(celdas[i][x]);
-							Casilla._1F.setPieza(pieza);
+							Casillas._1F.setCasilla(celdas[i][x]);
+							Casillas._1F.setPieza(pieza);
 						}
 
 						PlacePieces(i, x, pieza);
@@ -165,8 +165,8 @@ public class Tablero extends Window implements Casillas {
 					if (x == 3) {
 						Pieces pieza = NewPiece("negro", Pieces.Types.reina);
 						
-						Casilla._1D.setCasilla(celdas[i][x]);
-						Casilla._1D.setPieza(pieza);
+						Casillas._1D.setCasilla(celdas[i][x]);
+						Casillas._1D.setPieza(pieza);
 
 						PlacePieces(i, x, pieza);
 					}
@@ -174,8 +174,8 @@ public class Tablero extends Window implements Casillas {
 					if (x == 4) {
 						Pieces pieza = NewPiece("negro", Pieces.Types.rey);
 						
-						Casilla._1E.setCasilla(celdas[i][x]);
-						Casilla._1E.setPieza(pieza);
+						Casillas._1E.setCasilla(celdas[i][x]);
+						Casillas._1E.setPieza(pieza);
 
 						PlacePieces(i, x, pieza);
 					}
@@ -186,36 +186,36 @@ public class Tablero extends Window implements Casillas {
 					
 					switch (x) {
 					case 0: 
-						Casilla._2A.setCasilla(celdas[i][x]);
-						Casilla._2A.setPieza(pieza);
+						Casillas._2A.setCasilla(celdas[i][x]);
+						Casillas._2A.setPieza(pieza);
 						break;
 					case 1: 
-						Casilla._2B.setCasilla(celdas[i][x]);
-						Casilla._2B.setPieza(pieza);
+						Casillas._2B.setCasilla(celdas[i][x]);
+						Casillas._2B.setPieza(pieza);
 						break;
 					case 2: 
-						Casilla._2C.setCasilla(celdas[i][x]);
-						Casilla._2C.setPieza(pieza);
+						Casillas._2C.setCasilla(celdas[i][x]);
+						Casillas._2C.setPieza(pieza);
 						break;
 					case 3: 
-						Casilla._2D.setCasilla(celdas[i][x]);
-						Casilla._2D.setPieza(pieza);
+						Casillas._2D.setCasilla(celdas[i][x]);
+						Casillas._2D.setPieza(pieza);
 						break;
 					case 4: 
-						Casilla._2E.setCasilla(celdas[i][x]);
-						Casilla._2E.setPieza(pieza);
+						Casillas._2E.setCasilla(celdas[i][x]);
+						Casillas._2E.setPieza(pieza);
 						break;
 					case 5: 
-						Casilla._2F.setCasilla(celdas[i][x]);
-						Casilla._2F.setPieza(pieza);
+						Casillas._2F.setCasilla(celdas[i][x]);
+						Casillas._2F.setPieza(pieza);
 						break;
 					case 6: 
-						Casilla._2G.setCasilla(celdas[i][x]);
-						Casilla._2G.setPieza(pieza);
+						Casillas._2G.setCasilla(celdas[i][x]);
+						Casillas._2G.setPieza(pieza);
 						break;
 					case 7: 
-						Casilla._2H.setCasilla(celdas[i][x]);
-						Casilla._2H.setPieza(pieza);
+						Casillas._2H.setCasilla(celdas[i][x]);
+						Casillas._2H.setPieza(pieza);
 						break;
 					}
 
@@ -227,11 +227,11 @@ public class Tablero extends Window implements Casillas {
 						Pieces pieza = NewPiece("blanco", Pieces.Types.torre);
 						
 						if (x == 0) {
-							Casilla._8A.setCasilla(celdas[i][x]);
-							Casilla._8A.setPieza(pieza);
+							Casillas._8A.setCasilla(celdas[i][x]);
+							Casillas._8A.setPieza(pieza);
 						} else if (x == 7) {
-							Casilla._8H.setCasilla(celdas[i][x]);
-							Casilla._8H.setPieza(pieza);
+							Casillas._8H.setCasilla(celdas[i][x]);
+							Casillas._8H.setPieza(pieza);
 						}
 
 						PlacePieces(i, x, pieza);
@@ -241,11 +241,11 @@ public class Tablero extends Window implements Casillas {
 						Pieces pieza = NewPiece("blanco", Pieces.Types.caballo);
 						
 						if (x == 1) {
-							Casilla._8B.setCasilla(celdas[i][x]);
-							Casilla._8B.setPieza(pieza);
+							Casillas._8B.setCasilla(celdas[i][x]);
+							Casillas._8B.setPieza(pieza);
 						} else if (x == 6) {
-							Casilla._8G.setCasilla(celdas[i][x]);
-							Casilla._8G.setPieza(pieza);
+							Casillas._8G.setCasilla(celdas[i][x]);
+							Casillas._8G.setPieza(pieza);
 						}
 
 						PlacePieces(i, x, pieza);
@@ -255,11 +255,11 @@ public class Tablero extends Window implements Casillas {
 						Pieces pieza = NewPiece("blanco", Pieces.Types.alfil);
 						
 						if (x == 2) {
-							Casilla._8C.setCasilla(celdas[i][x]);
-							Casilla._8C.setPieza(pieza);
+							Casillas._8C.setCasilla(celdas[i][x]);
+							Casillas._8C.setPieza(pieza);
 						} else if (x == 5) {
-							Casilla._8F.setCasilla(celdas[i][x]);
-							Casilla._8F.setPieza(pieza);
+							Casillas._8F.setCasilla(celdas[i][x]);
+							Casillas._8F.setPieza(pieza);
 						}
 
 						PlacePieces(i, x, pieza);
@@ -268,8 +268,8 @@ public class Tablero extends Window implements Casillas {
 					if (x == 3) {
 						Pieces pieza = NewPiece("blanco", Pieces.Types.reina);
 						
-						Casilla._8D.setCasilla(celdas[i][x]);
-						Casilla._8D.setPieza(pieza);
+						Casillas._8D.setCasilla(celdas[i][x]);
+						Casillas._8D.setPieza(pieza);
 
 						PlacePieces(i, x, pieza);
 					}
@@ -277,8 +277,8 @@ public class Tablero extends Window implements Casillas {
 					if (x == 4) {
 						Pieces pieza = NewPiece("blanco", Pieces.Types.rey);
 						
-						Casilla._8E.setCasilla(celdas[i][x]);
-						Casilla._8E.setPieza(pieza);
+						Casillas._8E.setCasilla(celdas[i][x]);
+						Casillas._8E.setPieza(pieza);
 
 						PlacePieces(i, x, pieza);
 					}
@@ -289,36 +289,36 @@ public class Tablero extends Window implements Casillas {
 					
 					switch (x) {
 					case 0: 
-						Casilla._7A.setCasilla(celdas[i][x]);
-						Casilla._7A.setPieza(pieza);
+						Casillas._7A.setCasilla(celdas[i][x]);
+						Casillas._7A.setPieza(pieza);
 						break;
 					case 1: 
-						Casilla._7B.setCasilla(celdas[i][x]);
-						Casilla._7B.setPieza(pieza);
+						Casillas._7B.setCasilla(celdas[i][x]);
+						Casillas._7B.setPieza(pieza);
 						break;
 					case 2: 
-						Casilla._7C.setCasilla(celdas[i][x]);
-						Casilla._7C.setPieza(pieza);
+						Casillas._7C.setCasilla(celdas[i][x]);
+						Casillas._7C.setPieza(pieza);
 						break;
 					case 3: 
-						Casilla._7D.setCasilla(celdas[i][x]);
-						Casilla._7D.setPieza(pieza);
+						Casillas._7D.setCasilla(celdas[i][x]);
+						Casillas._7D.setPieza(pieza);
 						break;
 					case 4: 
-						Casilla._7E.setCasilla(celdas[i][x]);
-						Casilla._7E.setPieza(pieza);
+						Casillas._7E.setCasilla(celdas[i][x]);
+						Casillas._7E.setPieza(pieza);
 						break;
 					case 5: 
-						Casilla._7F.setCasilla(celdas[i][x]);
-						Casilla._7F.setPieza(pieza);
+						Casillas._7F.setCasilla(celdas[i][x]);
+						Casillas._7F.setPieza(pieza);
 						break;
 					case 6: 
-						Casilla._7G.setCasilla(celdas[i][x]);
-						Casilla._7G.setPieza(pieza);
+						Casillas._7G.setCasilla(celdas[i][x]);
+						Casillas._7G.setPieza(pieza);
 						break;
 					case 7: 
-						Casilla._7H.setCasilla(celdas[i][x]);
-						Casilla._7H.setPieza(pieza);
+						Casillas._7H.setCasilla(celdas[i][x]);
+						Casillas._7H.setPieza(pieza);
 						break;
 					}
 

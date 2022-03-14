@@ -7,8 +7,8 @@ import graphics.Pieces;
 /**
  * @author Mario Gabriel Núñez Alcázar de Velasco
  */
-public interface Casillas {
-	public enum Casilla{
+public interface Maping {
+	public enum Casillas{
 		_1A(new JPanel(), null), _1B(new JPanel(), null), _1C(new JPanel(), null), _1D(new JPanel(), null), _1E(new JPanel(), null), _1F(new JPanel(), null), _1G(new JPanel(), null), _1H(new JPanel(), null),
 		_2A(new JPanel(), null), _2B(new JPanel(), null), _2C(new JPanel(), null), _2D(new JPanel(), null), _2E(new JPanel(), null), _2F(new JPanel(), null), _2G(new JPanel(), null), _2H(new JPanel(), null),
 		_3A(new JPanel(), null), _3B(new JPanel(), null), _3C(new JPanel(), null), _3D(new JPanel(), null), _3E(new JPanel(), null), _3F(new JPanel(), null), _3G(new JPanel(), null), _3H(new JPanel(), null),
@@ -21,7 +21,7 @@ public interface Casillas {
 		private JPanel casilla;
 		private Pieces pieza;
 		
-		Casilla (JPanel casilla, Pieces pieza){
+		Casillas (JPanel casilla, Pieces pieza){
 			this.casilla = casilla;
 		}
 		

@@ -4,6 +4,7 @@
 package graphics;
 
 import java.awt.BorderLayout;
+import java.awt.Toolkit;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.JFrame;
@@ -18,6 +19,48 @@ public class Window {
 	protected static JPanel tablero;
 	
 	public Window() {
+		Toolkit t = Toolkit.getDefaultToolkit();
+		Dimension screenSize = t.getScreenSize();
+		Dimension marginRL = new Dimension(((screenSize.width / 2) - 68) / 2, 0);
+		Dimension marginTB = new Dimension(0, screenSize.height / 32);
+		Dimension tableDim = new Dimension(screenSize.width - marginRL.width, screenSize.height - marginTB.height);
+		
+		JPanel marginR = new JPanel() {
+			   private static final long serialVersionUID = 1L;
+				
+			   @Override
+			   public Dimension getPreferredSize(){
+				   return new Dimension(marginRL);
+			   }
+		};
+		
+		JPanel marginL = new JPanel() {
+			private static final long serialVersionUID = 1L;
+			
+			@Override
+			public Dimension getPreferredSize(){
+				return new Dimension(marginRL);
+			}
+		};
+		
+		JPanel marginT = new JPanel() {
+			private static final long serialVersionUID = 1L;
+			
+			@Override
+			public Dimension getPreferredSize(){
+				return new Dimension(marginTB);
+			}
+		};
+		
+		JPanel marginB = new JPanel() {
+			private static final long serialVersionUID = 1L;
+			
+			@Override
+			public Dimension getPreferredSize(){
+				return new Dimension(marginTB);
+			}
+		};
+		
 		frame = new JFrame();
 		frame.setResizable(false);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
@@ -26,37 +69,20 @@ public class Window {
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		tablero = new JPanel();
+		tablero.setPreferredSize(tableDim);
+		tablero.setMaximumSize(tableDim);
+		tablero.setMinimumSize(tableDim);
 		tablero.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		tablero.setLayout(new GridLayout(8, 8, 0, 0));
 		
 		frame.getContentPane().add(tablero, BorderLayout.CENTER);
 		
-		JPanel piezasComidas = new JPanel();
-		frame.getContentPane().add(piezasComidas, BorderLayout.NORTH);
+		frame.getContentPane().add(marginT, BorderLayout.NORTH);
 		
-		JPanel command = new JPanel();
-		frame.getContentPane().add(command, BorderLayout.SOUTH);
+		frame.getContentPane().add(marginB, BorderLayout.SOUTH);
 		
-		JPanel piezasMuert = new JPanel() {
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public Dimension getPreferredSize(){
-				return new Dimension(300, 0);
-			}
-		};
+		frame.getContentPane().add(marginR, BorderLayout.WEST);
 		
-		frame.getContentPane().add(piezasMuert, BorderLayout.WEST);
-		
-		JPanel Contrario = new JPanel(){
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public Dimension getPreferredSize(){
-				return new Dimension(300, 0);
-			}
-		};
-		
-		frame.getContentPane().add(Contrario, BorderLayout.EAST);
+		frame.getContentPane().add(marginL, BorderLayout.EAST);
 	}
 }

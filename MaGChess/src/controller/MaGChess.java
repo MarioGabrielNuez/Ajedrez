@@ -5,7 +5,7 @@ import java.io.IOException;
 /**
  * @author Mario Gabriel Núñez Alcázar de Velasco
  */
-public class Main {
+public class MaGChess {
 	/**
 	 * Launch the application.
 	 */
