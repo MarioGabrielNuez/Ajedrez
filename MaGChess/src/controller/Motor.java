@@ -30,7 +30,7 @@ public class Motor extends Tablero{
 					public void mouseClicked(MouseEvent e) {
 						if (!Arrays.asList(celda.getComponents()).isEmpty()) {
 							if (colaider == null) {
-								for (Casillas c: Casillas.values()) {
+								for (Casilla c: Casilla.values()) {
 									if ((celda.getX() + celda.getY()) == (c.getCasilla().getX() + c.getCasilla().getY())) {
 										pieza = c.getPieza();
 										celdaOri = celda;
@@ -39,7 +39,7 @@ public class Motor extends Tablero{
 									}
 								}
 							} else {
-								for (Casillas c: Casillas.values()) {
+								for (Casilla c: Casilla.values()) {
 									if ((celda.getX() + celda.getY()) == (c.getCasilla().getX() + c.getCasilla().getY()) && c.getPieza().getColor() != pieza.getColor()) {
 										subsColaider = (JLabel) celda.getComponents()[0];
 										c.setCasilla(celda);
@@ -54,7 +54,7 @@ public class Motor extends Tablero{
 							}
 						} else {
 							if (Arrays.asList(celda.getComponents()).isEmpty() && colaider != null) {
-								for (Casillas c: Casillas.values()) {
+								for (Casilla c: Casilla.values()) {
 									if ((celdaOri.getX() + celdaOri.getY()) == (c.getCasilla().getX() + c.getCasilla().getY())) {				
 										c.setCasilla(celda);
 										c.setPieza(pieza);
@@ -87,7 +87,7 @@ public class Motor extends Tablero{
 							} else {
 								celda.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.red));
 								
-								for (Casillas c: Casillas.values()) {
+								for (Casilla c: Casilla.values()) {
 									if ((celda.getX() + celda.getY()) == (c.getCasilla().getX() + c.getCasilla().getY()) && c.getPieza().getColor() != pieza.getColor()) {
 										celda.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.green));
 									}
