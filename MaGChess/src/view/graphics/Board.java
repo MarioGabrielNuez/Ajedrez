@@ -1,11 +1,11 @@
-package graphics;
+package view.graphics;
 
 import java.awt.GridLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import controller.Maping;
-import java.awt.Color;
+import controller.Motor;
+import controller.mapping.Casillas;
+import view.Window;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
@@ -14,114 +14,25 @@ import javax.imageio.ImageIO;
 /**
  * @author Mario Gabriel Núñez Alcázar de Velasco
  */
-public class Tablero extends Window implements Maping {	
-	protected JPanel[][] celdas = null;
-	
-	/**
-	 * constructor del tablero
-	 * @throws IOException 
-	 */
-	public Tablero() throws IOException {
-		celdas = new JPanel[][] {
-			new JPanel[] {
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel()
-			}, 
-			new JPanel[] {
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel()
-			}, 
-			new JPanel[] {
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel()
-			}, 
-			new JPanel[] {
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel()
-			}, 
-			new JPanel[] {
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel()
-			},
-			new JPanel[] {
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel()
-			},
-			new JPanel[] {
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel()
-			},
-			new JPanel[] {
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel(),
-				new JPanel()
-			}
-		};
-		
+public class Board extends Window implements BoardEstructure {
+	public Board() throws IOException {		
 		for (int i = 0;i<8;i++) {
 			for (int x = 0;x<8;x++) {
 				celdas[i][x].setLayout(new GridLayout(8, 8, 0, 0));
 				
 				if (i % 2 == 0) {
 					if (x % 2 != 0) {
-						celdas[i][x].setBackground(new Color(176,190,197));
+						celdas[i][x].setBackground(_gray);
 					}
 				} else {
 					if (x % 2 == 0) {
-						celdas[i][x].setBackground(new Color(176,190,197));	
+						celdas[i][x].setBackground(_gray);	
 					}
 				}
 				
 				if (i == 0) {
 					if (x == 0 || x == 7) {
-						Pieces pieza = NewPiece("negro", Pieces.Types.torre);
+						Pieces pieza = Motor.NewPiece("negro", Pieces.Types.torre);
 						
 						if (x == 0) {
 							Casillas._1A.setCasilla(celdas[i][x]);
@@ -135,7 +46,7 @@ public class Tablero extends Window implements Maping {
 					}
 					
 					if (x == 1 || x == 6) {
-						Pieces pieza = NewPiece("negro", Pieces.Types.caballo);
+						Pieces pieza = Motor.NewPiece("negro", Pieces.Types.caballo);
 						
 						if (x == 1) {
 							Casillas._1B.setCasilla(celdas[i][x]);
@@ -149,7 +60,7 @@ public class Tablero extends Window implements Maping {
 					}
 					
 					if (x == 2 || x == 5) {
-						Pieces pieza = NewPiece("negro", Pieces.Types.alfil);
+						Pieces pieza = Motor.NewPiece("negro", Pieces.Types.alfil);
 						
 						if (x == 2) {
 							Casillas._1C.setCasilla(celdas[i][x]);
@@ -163,7 +74,7 @@ public class Tablero extends Window implements Maping {
 					}
 					
 					if (x == 3) {
-						Pieces pieza = NewPiece("negro", Pieces.Types.reina);
+						Pieces pieza = Motor.NewPiece("negro", Pieces.Types.reina);
 						
 						Casillas._1D.setCasilla(celdas[i][x]);
 						Casillas._1D.setPieza(pieza);
@@ -172,7 +83,7 @@ public class Tablero extends Window implements Maping {
 					}
 					
 					if (x == 4) {
-						Pieces pieza = NewPiece("negro", Pieces.Types.rey);
+						Pieces pieza = Motor.NewPiece("negro", Pieces.Types.rey);
 						
 						Casillas._1E.setCasilla(celdas[i][x]);
 						Casillas._1E.setPieza(pieza);
@@ -182,7 +93,7 @@ public class Tablero extends Window implements Maping {
 				}
 				
 				if (i == 1) {
-					Pieces pieza = NewPiece("negro", Pieces.Types.peon);
+					Pieces pieza = Motor.NewPiece("negro", Pieces.Types.peon);
 					
 					switch (x) {
 					case 0: 
@@ -224,7 +135,7 @@ public class Tablero extends Window implements Maping {
 				
 				if (i == 7) {
 					if (x == 0 || x == 7) {
-						Pieces pieza = NewPiece("blanco", Pieces.Types.torre);
+						Pieces pieza = Motor.NewPiece("blanco", Pieces.Types.torre);
 						
 						if (x == 0) {
 							Casillas._8A.setCasilla(celdas[i][x]);
@@ -238,7 +149,7 @@ public class Tablero extends Window implements Maping {
 					}
 					
 					if (x == 1 || x == 6) {
-						Pieces pieza = NewPiece("blanco", Pieces.Types.caballo);
+						Pieces pieza = Motor.NewPiece("blanco", Pieces.Types.caballo);
 						
 						if (x == 1) {
 							Casillas._8B.setCasilla(celdas[i][x]);
@@ -252,7 +163,7 @@ public class Tablero extends Window implements Maping {
 					}
 					
 					if (x == 2 || x == 5) {
-						Pieces pieza = NewPiece("blanco", Pieces.Types.alfil);
+						Pieces pieza = Motor.NewPiece("blanco", Pieces.Types.alfil);
 						
 						if (x == 2) {
 							Casillas._8C.setCasilla(celdas[i][x]);
@@ -266,7 +177,7 @@ public class Tablero extends Window implements Maping {
 					}
 					
 					if (x == 3) {
-						Pieces pieza = NewPiece("blanco", Pieces.Types.reina);
+						Pieces pieza = Motor.NewPiece("blanco", Pieces.Types.reina);
 						
 						Casillas._8D.setCasilla(celdas[i][x]);
 						Casillas._8D.setPieza(pieza);
@@ -275,7 +186,7 @@ public class Tablero extends Window implements Maping {
 					}
 					
 					if (x == 4) {
-						Pieces pieza = NewPiece("blanco", Pieces.Types.rey);
+						Pieces pieza = Motor.NewPiece("blanco", Pieces.Types.rey);
 						
 						Casillas._8E.setCasilla(celdas[i][x]);
 						Casillas._8E.setPieza(pieza);
@@ -285,7 +196,7 @@ public class Tablero extends Window implements Maping {
 				}
 				
 				if (i == 6) {
-					Pieces pieza = NewPiece("blanco", Pieces.Types.peon);
+					Pieces pieza = Motor.NewPiece("blanco", Pieces.Types.peon);
 					
 					switch (x) {
 					case 0: 
@@ -331,14 +242,10 @@ public class Tablero extends Window implements Maping {
 
 		frame.setVisible(true);
 	}
-
-	public Pieces NewPiece(String color, Pieces.Types piece) throws IOException {
-		Pieces pieza = new Pieces("src/graphics/assets/" + piece + "-" + color + ".png", color);
-		return pieza;
-	}
 	
 	public void PlacePieces(int i, int x, Pieces piece) throws IOException {
 		Image asset = ImageIO.read(new File(piece.getPath())).getScaledInstance(100, 100, Image.SCALE_DEFAULT);
+		
 		JLabel colaider = new JLabel(new ImageIcon(asset), JLabel.CENTER) {
 			private static final long serialVersionUID = 1L;
 

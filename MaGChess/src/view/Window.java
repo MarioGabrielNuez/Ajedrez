@@ -1,7 +1,7 @@
 /**
  * 
  */
-package graphics;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.Toolkit;
@@ -10,15 +10,16 @@ import java.awt.GridLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
+import controller.Motor;
 
 /**
  * @author Mario Gabriel Núñez Alcázar de Velasco
  */
-public class Window {
+public class Window extends Motor {
 	protected JFrame frame;
 	protected static JPanel tablero;
 	
-	public Window() {
+	public Window(){
 		Toolkit t = Toolkit.getDefaultToolkit();
 		Dimension screenSize = t.getScreenSize();
 		Dimension marginRL = new Dimension(((screenSize.width / 2) - 68) / 2, 0);
